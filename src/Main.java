@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Main {
@@ -99,5 +101,23 @@ public class Main {
 
         System.out.println("\nTrain Formation (Insertion Order + Unique):");
         System.out.println(formation);
+    
+// =========================
+// UC6: HashMap (Bogie → Capacity)
+// =========================
+
+Map<String, Integer> capacityMap = new HashMap<>();
+
+// Put values (bogie → capacity)
+capacityMap.put("Sleeper", 72);
+capacityMap.put("AC Chair", 60);
+capacityMap.put("First Class", 24);
+
+// Iterate and display
+System.out.println("\nBogie Capacity Details:");
+for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+    System.out.println(entry.getKey() + " → " + entry.getValue());
+}
+
     }
 }
