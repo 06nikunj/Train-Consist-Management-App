@@ -150,5 +150,21 @@ public class Main {
         for (Bogie b : filteredBogies) {
             System.out.println(b.name + " - " + b.capacity);
         }
+ // =========================
+// UC9: Group Bogies by Type
+// =========================
+
+Map<String, List<Bogie>> groupedBogies = bogieList.stream()
+        .collect(Collectors.groupingBy(b -> b.name));
+
+System.out.println("\nGrouped Bogies:");
+
+for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+    System.out.println(entry.getKey() + " → ");
+
+    for (Bogie b : entry.getValue()) {
+        System.out.println("   " + b.name + " - " + b.capacity);
+    }
+}
     }
 }
