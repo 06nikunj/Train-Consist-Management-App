@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -82,5 +83,21 @@ public class Main {
 
         System.out.println("\nAfter Removing First and Last:");
         System.out.println(train);
+
+        // =========================
+        // UC5: LinkedHashSet (Order + Uniqueness)
+        // =========================
+
+        LinkedHashSet<String> formation = new LinkedHashSet<>();
+
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+
+        formation.add("Sleeper"); // duplicate (ignored)
+
+        System.out.println("\nTrain Formation (Insertion Order + Unique):");
+        System.out.println(formation);
     }
 }
