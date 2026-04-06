@@ -176,5 +176,34 @@ int totalCapacity = bogieList.stream()
 System.out.println("\nTotal Seating Capacity of Train:");
 System.out.println(totalCapacity);
 }
+    // =========================
+// UC11: Regex Validation
+// =========================
+
+// Sample inputs (you can later take from user)
+String trainId = "TRN-1234";
+String cargoCode = "PET-AB";
+
+// Define regex patterns
+Pattern trainPattern = Pattern.compile("TRN-\\d{4}");
+Pattern cargoPattern = Pattern.compile("PET-[A-Z]{2}");
+
+// Create matchers
+Matcher trainMatcher = trainPattern.matcher(trainId);
+Matcher cargoMatcher = cargoPattern.matcher(cargoCode);
+
+// Validate Train ID
+if (trainMatcher.matches()) {
+    System.out.println("\nTrain ID is VALID: " + trainId);
+} else {
+    System.out.println("\nTrain ID is INVALID: " + trainId);
+}
+
+// Validate Cargo Code
+if (cargoMatcher.matches()) {
+    System.out.println("Cargo Code is VALID: " + cargoCode);
+} else {
+    System.out.println("Cargo Code is INVALID: " + cargoCode);
+}
     }
 }
