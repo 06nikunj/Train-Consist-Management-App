@@ -165,6 +165,16 @@ for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
     for (Bogie b : entry.getValue()) {
         System.out.println("   " + b.name + " - " + b.capacity);
     }
+// =========================
+// UC10: Total Seat Calculation (reduce)
+// =========================
+
+int totalCapacity = bogieList.stream()
+        .map(b -> b.capacity)
+        .reduce(0, Integer::sum);
+
+System.out.println("\nTotal Seating Capacity of Train:");
+System.out.println(totalCapacity);
 }
     }
 }
