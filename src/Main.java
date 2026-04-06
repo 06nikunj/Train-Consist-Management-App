@@ -1,12 +1,13 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.LinkedList;
-import java.util.LinkedHashSet;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -134,6 +135,19 @@ public class Main {
 
         System.out.println("\nAfter Sorting (by capacity):");
         for (Bogie b : bogieList) {
+            System.out.println(b.name + " - " + b.capacity);
+        }
+
+        // =========================
+        // UC8: Stream API (Filter Bogies)
+        // =========================
+
+        List<Bogie> filteredBogies = bogieList.stream()
+                .filter(b -> b.capacity > 60)
+                .collect(Collectors.toList());
+
+        System.out.println("\nFiltered Bogies (Capacity > 60):");
+        for (Bogie b : filteredBogies) {
             System.out.println(b.name + " - " + b.capacity);
         }
     }
