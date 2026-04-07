@@ -231,5 +231,51 @@ if (isSafe) {
 } else {
     System.out.println("Train is NOT SAFE");
 } 
+// =========================
+// UC13: Performance Comparison (Loop vs Stream)
+// =========================
+
+// Create large dataset
+List<Bogie> testList = new ArrayList<>();
+
+for (int i = 0; i < 10000; i++) {
+    testList.add(new Bogie("Sleeper", 72));
+    testList.add(new Bogie("AC Chair", 60));
+    testList.add(new Bogie("First Class", 24));
+}
+
+// -------- LOOP METHOD --------
+long startLoop = System.nanoTime();
+
+List<Bogie> loopResult = new ArrayList<>();
+for (Bogie b : testList) {
+    if (b.capacity > 60) {
+        loopResult.add(b);
     }
 }
+
+long endLoop = System.nanoTime();
+long loopTime = endLoop - startLoop;
+
+// -------- STREAM METHOD --------
+long startStream = System.nanoTime();
+
+List<Bogie> streamResult = testList.stream()
+        .filter(b -> b.capacity > 60)
+        .toList();
+
+long endStream = System.nanoTime();
+long streamTime = endStream - startStream;
+
+// -------- OUTPUT --------
+System.out.println("\nPerformance Comparison:");
+System.out.println("Loop Time (ns): " + loopTime);
+System.out.println("Stream Time (ns): " + streamTime);
+
+System.out.println("\nResult Size Check:");
+System.out.println("Loop Result Size: " + loopResult.size());
+System.out.println("Stream Result Size: " + streamResult.size());
+
+    }
+}
+
