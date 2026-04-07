@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -205,5 +207,29 @@ if (cargoMatcher.matches()) {
 } else {
     System.out.println("Cargo Code is INVALID: " + cargoCode);
 }
+// =========================
+// UC12: Safety Compliance Check
+// =========================
+
+List<GoodsBogie> goodsList = new ArrayList<>();
+
+// Add goods bogies
+goodsList.add(new GoodsBogie("Cylindrical", "Petroleum")); // valid
+goodsList.add(new GoodsBogie("Box", "Coal"));              // valid
+goodsList.add(new GoodsBogie("Open", "Grain"));            // valid
+
+// Safety check using allMatch()
+boolean isSafe = goodsList.stream()
+        .allMatch(b ->
+                !b.type.equals("Cylindrical") ||
+                b.cargo.equals("Petroleum")
+        );
+
+System.out.println("\nTrain Safety Compliance:");
+if (isSafe) {
+    System.out.println("Train is SAFE for operation");
+} else {
+    System.out.println("Train is NOT SAFE");
+} 
     }
 }
