@@ -187,5 +187,44 @@ public class Main {
         } catch (InvalidCapacityException e) {
             System.out.println("\nException: " + e.getMessage());
         }
+    // =========================
+// UC15: Final Train Summary
+// =========================
+
+System.out.println("\n=========================");
+System.out.println("FINAL TRAIN SUMMARY");
+System.out.println("=========================");
+
+// Passenger bogies
+System.out.println("\nPassenger Bogies:");
+for (Bogie b : bogieList) {
+    System.out.println(b.name + " - Capacity: " + b.capacity);
+}
+
+// Total capacity
+int totalCapacity = bogieList.stream()
+        .map(b -> b.capacity)
+        .reduce(0, Integer::sum);
+
+System.out.println("\nTotal Passenger Capacity: " + totalCapacity);
+
+// Goods bogies
+System.out.println("\nGoods Bogies:");
+for (GoodsBogie g : goods) {
+    System.out.println(g.type + " - Cargo: " + g.cargo);
+}
+
+// Safety status
+boolean isSafeFinal = goods.stream()
+        .allMatch(b -> !b.type.equals("Cylindrical") || b.cargo.equals("Petroleum"));
+
+System.out.println("\nSafety Status: " + (isSafeFinal ? "SAFE" : "NOT SAFE"));
+
+// Unique bogie count
+System.out.println("\nTotal Unique Bogies: " + formation.size());
+
+System.out.println("\n=========================");
+System.out.println("SYSTEM EXECUTION COMPLETE");
+System.out.println("=========================");
     }
 }
