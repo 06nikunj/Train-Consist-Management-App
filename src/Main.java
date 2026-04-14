@@ -355,5 +355,20 @@ while (low <= high) {
 if (!foundBinary) {
     System.out.println("\n[BINARY SEARCH] Bogie NOT Found");
 }
+
+// =========================
+// UC20: Defensive Check Before Search
+// =========================
+
+// Example: using bogieList (from UC7 onwards)
+
+// Check if empty
+if (bogieList.isEmpty()) {
+    throw new IllegalStateException("Cannot perform search: No bogies available in train");
+}
+
+// If not empty → proceed
+System.out.println("\nSearch operation allowed. Bogies exist.");
+
     }
 }
