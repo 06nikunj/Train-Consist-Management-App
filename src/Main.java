@@ -260,6 +260,30 @@ System.out.println("\n\nAfter Sorting (Bubble Sort):");
 for (int c : capacities) {
     System.out.print(c + " ");
 }
-}
-}
 
+
+// =========================
+// UC17: Arrays.sort() (Alphabetical Sorting)
+// =========================
+
+// Create array of bogie names
+String[] bogieNames = {
+        "Sleeper",
+        "AC Chair",
+        "First Class",
+        "General",
+        "Luxury"
+};
+
+// Before sorting
+System.out.println("\nBefore Sorting (Names):");
+System.out.println(Arrays.toString(bogieNames));
+
+// Sort using built-in method
+Arrays.sort(bogieNames);
+
+// After sorting
+System.out.println("\nAfter Sorting (Alphabetical):");
+System.out.println(Arrays.toString(bogieNames));
+}
+}
