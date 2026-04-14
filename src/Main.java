@@ -226,5 +226,40 @@ System.out.println("\nTotal Unique Bogies: " + formation.size());
 System.out.println("\n=========================");
 System.out.println("SYSTEM EXECUTION COMPLETE");
 System.out.println("=========================");
+     
+    
+// =========================
+// UC16: Bubble Sort (Manual Sorting)
+// =========================
+
+// Create array of capacities
+int[] capacities = {72, 56, 24, 70, 60};
+
+System.out.println("\nBefore Sorting:");
+for (int c : capacities) {
+    System.out.print(c + " ");
+}
+
+// Bubble Sort Logic
+int n = capacities.length;
+
+for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+
+        if (capacities[j] > capacities[j + 1]) {
+            // swap
+            int temp = capacities[j];
+            capacities[j] = capacities[j + 1];
+            capacities[j + 1] = temp;
+        }
     }
 }
+
+// After sorting
+System.out.println("\n\nAfter Sorting (Bubble Sort):");
+for (int c : capacities) {
+    System.out.print(c + " ");
+}
+}
+}
+
