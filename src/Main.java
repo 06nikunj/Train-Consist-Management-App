@@ -315,5 +315,45 @@ for (int i = 0; i < bogieIdsArray.length; i++) {
 if (!found) {
     System.out.println("\nBogie NOT Found");
 }
+
+// =========================
+// UC19: Binary Search (Bogie ID)
+// =========================
+
+// Sorted array (VERY IMPORTANT)
+String[] sortedBogieIds = {
+        "BG101", "BG205", "BG309", "BG412", "BG550"
+};
+
+// Search key
+String key = "BG309";  // change to test
+
+int low = 0;
+int high = sortedBogieIds.length - 1;
+boolean foundBinary = false;
+
+while (low <= high) {
+
+    int mid = (low + high) / 2;
+
+    int comparison = key.compareTo(sortedBogieIds[mid]);
+
+    if (comparison == 0) {
+        System.out.println("\n[BINARY SEARCH] Bogie Found at position: " + mid);
+        foundBinary = true;
+        break;
+    }
+    else if (comparison < 0) {
+        high = mid - 1; // search left
+    }
+    else {
+        low = mid + 1; // search right
+    }
 }
+
+// If not found
+if (!foundBinary) {
+    System.out.println("\n[BINARY SEARCH] Bogie NOT Found");
+}
+    }
 }
