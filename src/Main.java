@@ -285,5 +285,35 @@ Arrays.sort(bogieNames);
 // After sorting
 System.out.println("\nAfter Sorting (Alphabetical):");
 System.out.println(Arrays.toString(bogieNames));
+
+
+// =========================
+// UC18: Linear Search (Bogie ID)
+// =========================
+
+// Array of bogie IDs
+String[] bogieIdsArray = {
+        "BG101", "BG205", "BG309", "BG412", "BG550"
+};
+
+// Search key
+String searchKey = "BG309";   // change to test
+
+boolean found = false;
+
+// Linear Search
+for (int i = 0; i < bogieIdsArray.length; i++) {
+
+    if (bogieIdsArray[i].equals(searchKey)) {
+        found = true;
+        System.out.println("\nBogie Found at position: " + i);
+        break; // stop when found
+    }
+}
+
+// Result
+if (!found) {
+    System.out.println("\nBogie NOT Found");
+}
 }
 }
