@@ -226,5 +226,149 @@ System.out.println("\nTotal Unique Bogies: " + formation.size());
 System.out.println("\n=========================");
 System.out.println("SYSTEM EXECUTION COMPLETE");
 System.out.println("=========================");
+     
+    
+// =========================
+// UC16: Bubble Sort (Manual Sorting)
+// =========================
+
+// Create array of capacities
+int[] capacities = {72, 56, 24, 70, 60};
+
+System.out.println("\nBefore Sorting:");
+for (int c : capacities) {
+    System.out.print(c + " ");
+}
+
+// Bubble Sort Logic
+int n = capacities.length;
+
+for (int i = 0; i < n - 1; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+
+        if (capacities[j] > capacities[j + 1]) {
+            // swap
+            int temp = capacities[j];
+            capacities[j] = capacities[j + 1];
+            capacities[j + 1] = temp;
+        }
+    }
+}
+
+// After sorting
+System.out.println("\n\nAfter Sorting (Bubble Sort):");
+for (int c : capacities) {
+    System.out.print(c + " ");
+}
+
+
+// =========================
+// UC17: Arrays.sort() (Alphabetical Sorting)
+// =========================
+
+// Create array of bogie names
+String[] bogieNames = {
+        "Sleeper",
+        "AC Chair",
+        "First Class",
+        "General",
+        "Luxury"
+};
+
+// Before sorting
+System.out.println("\nBefore Sorting (Names):");
+System.out.println(Arrays.toString(bogieNames));
+
+// Sort using built-in method
+Arrays.sort(bogieNames);
+
+// After sorting
+System.out.println("\nAfter Sorting (Alphabetical):");
+System.out.println(Arrays.toString(bogieNames));
+
+
+// =========================
+// UC18: Linear Search (Bogie ID)
+// =========================
+
+// Array of bogie IDs
+String[] bogieIdsArray = {
+        "BG101", "BG205", "BG309", "BG412", "BG550"
+};
+
+// Search key
+String searchKey = "BG309";   // change to test
+
+boolean found = false;
+
+// Linear Search
+for (int i = 0; i < bogieIdsArray.length; i++) {
+
+    if (bogieIdsArray[i].equals(searchKey)) {
+        found = true;
+        System.out.println("\nBogie Found at position: " + i);
+        break; // stop when found
+    }
+}
+
+// Result
+if (!found) {
+    System.out.println("\nBogie NOT Found");
+}
+
+// =========================
+// UC19: Binary Search (Bogie ID)
+// =========================
+
+// Sorted array (VERY IMPORTANT)
+String[] sortedBogieIds = {
+        "BG101", "BG205", "BG309", "BG412", "BG550"
+};
+
+// Search key
+String key = "BG309";  // change to test
+
+int low = 0;
+int high = sortedBogieIds.length - 1;
+boolean foundBinary = false;
+
+while (low <= high) {
+
+    int mid = (low + high) / 2;
+
+    int comparison = key.compareTo(sortedBogieIds[mid]);
+
+    if (comparison == 0) {
+        System.out.println("\n[BINARY SEARCH] Bogie Found at position: " + mid);
+        foundBinary = true;
+        break;
+    }
+    else if (comparison < 0) {
+        high = mid - 1; // search left
+    }
+    else {
+        low = mid + 1; // search right
+    }
+}
+
+// If not found
+if (!foundBinary) {
+    System.out.println("\n[BINARY SEARCH] Bogie NOT Found");
+}
+
+// =========================
+// UC20: Defensive Check Before Search
+// =========================
+
+// Example: using bogieList (from UC7 onwards)
+
+// Check if empty
+if (bogieList.isEmpty()) {
+    throw new IllegalStateException("Cannot perform search: No bogies available in train");
+}
+
+// If not empty → proceed
+System.out.println("\nSearch operation allowed. Bogies exist.");
+
     }
 }
